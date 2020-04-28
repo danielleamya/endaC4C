@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Entry</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" type="image/png" href="icon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body onload="setup()">
+	<div class="container">
+
+		<div class="wrapper">
+
+		<h1>C4C</h1>
+		<div id="login">
+			<!-- <p id="instructions">Welcome to Compositions for the Collective. Please enter your tag number to join the audio streams...</p> -->
+			<p id="instructions">Welcome to Compositions for the Collective. <br> Please follow these instructions to login to C4C: <br>
+			<br> 1. Turn on the sound on your device and turn the volume all the way up. <br> 2. Turn off WiFi and activate Do Not Disturb. <br> 3. Press ENTER and enjoy. <br>
+			</p>
+			<br>
+
+			 <input type="text" maxlength="4" id="attempted_login" placeholder="0000" onfocus="this.placeholder=''" onblur="this.placeholder='0000'" oninput="attempt_activate_button()">
+			<br>
+			<button id="button" onclick="login(); refresh()" >S T A R T</button>
+		</div>
+
+		<div id="player_info" hidden="true">
+			<p id="information">Now streaming audio for performance...</p>
+			<p id="frequencies"> Insert Frequencies Here....</p>
+			<p id="permissions">Permissions & iOS</p>
+			<p id="sensorData">Now streaming gyroscope and accelerometer data...</p>
+			<br><br><br><br><br>
+			<br><br><br><br>
+		</div>
+
+		<br><br>
+
+		</div> <!-- end of wrapper -->
+
+		<div class="footer">
+			<img src="logo.png">
+			<p id="eat">Experiments in Art and Technology</p>
+		</div>
+	</div>
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="p5.min.js"></script>
+  <script src="p5.dom.min.js"></script>
+  <script src="NoSleep.min.js"></script>
+  <script src="p5.sound.min.js"></script>
+  <script src="p5.sound.js"></script>
+  <script src="stomp.js"></script>
+  <script src="sketch.js"></script>
+</body>
+
+</html>

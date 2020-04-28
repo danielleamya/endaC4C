@@ -1,0 +1,172 @@
+/* General page styles */
+
+@font-face {
+	font-family: custom;
+	src: url(open-sans/OpenSans-Regular.ttf);
+}
+
+html {
+	background-image: linear-gradient(to bottom, #f0f1f5, #010719);
+	min-height: 100%;
+	width: 100%;
+	font-family: custom;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	font-family: custom;
+}
+
+/* Footer styles */
+
+.container {
+	min-height: 100%;
+	position: relative;
+	width: 80%;
+	max-width: 1000px;
+}
+
+.wrapper {
+	padding: 10px;
+	padding-bottom: 60px;	/* Height of the footer */
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;	/* Height of the footer */
+}
+
+#eat {
+	text-transform: uppercase;
+	font-size: 6pt;
+}
+
+img {
+	width: 70%;
+	max-width: 240px;
+}
+
+/* Text and button styles */
+
+h1 {
+	font-weight: normal;
+	font-size: 36pt;
+	letter-spacing: 2vw;
+	color: white;
+	text-align: center;
+}
+
+p {
+	font-weight: lighter;
+	font-size: 12pt;
+	letter-spacing: 3px;
+	color: #f2f2f2;
+	text-align: center;
+}
+
+#information {
+	font-size: 20pt;
+}
+
+button {
+	background-color: #3d435c;
+	border: transparent;
+	color: white;
+	width: 240px;
+	height: 70px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 30px;
+	margin: auto;
+}
+
+button:active {
+	outline: none;
+}
+
+button:hover {
+	background-color: #272b3b;
+	border: transparent;
+	color: white;
+	width: 240px;
+	height: 70px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 30px;
+	cursor: pointer;
+	margin: auto;
+}
+
+button:disabled {
+	background-color: #b3b3c4;
+	border: transparent;
+	color: white;
+	width: 240px;
+	height: 70px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 30px;
+	cursor: auto;
+	margin: auto;
+}
+
+div {
+	font-size: 12px;
+	text-align: center;
+	margin: auto;
+	
+}
+
+input {
+	background-color: white;
+	width: 240px;
+	height: 70px;
+	text-align: center;
+	font-size: 48px;
+	border: transparent;
+	border-radius: 0px;
+	color: #525a7a;
+	padding: 0px;
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	caret-color: #949bb8;
+}
+
+input::placeholder {
+	color: #e6e6e6;
+}
+
+
+/*Animations*/
+
+.typewriter h1 {
+  overflow: hidden;
+  border-right: 3px solid #525a7a;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 4vw;
+  animation: 
+	 typing 0.75s steps(6, end),
+	 blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #525a7a }
+}
+
+.no_animation h1 {
+	overflow: hidden;
+	white-space: nowrap;
+	margin: 0 auto;
+	letter-spacing: 2vw;
+}

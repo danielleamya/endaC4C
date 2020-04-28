@@ -1,0 +1,12 @@
+rtsetparams(44100, 2)
+load("WAVETABLE")
+set_option("clobber=on")
+rtoutput("silent.wav")
+
+load("NOISE")
+
+   //ampenv = maketable("window", 1000, "hanning")
+   NOISE(0.0, 15, 25)
+       waveform = maketable("wave", 1000, "tri")
+
+      // WAVETABLE(0, 0.5, 10000, 440.0, 0.5, waveform)

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p5.js example</title>
+    <style> body {padding: 0; margin: 0;} </style>
+    <script src="stomp.js"></script>
+    <script>
+    // Simple function for generating readable timestamps (in local timezone)
+function generateReadableTimestamp(timestamp) {
+	let dateTime = new Date(timestamp);
+
+	let hours   = dateTime.getHours();
+	let minutes = dateTime.getMinutes();
+	let seconds = dateTime.getSeconds();
+	let msecs   = dateTime.getMilliseconds();
+
+	let hourString = (hours < 10) ? "0" + hours : "" + hours;
+	let minuteString = (minutes < 10) ? "0" + minutes : "" + minutes;
+	let secondString = (seconds < 10) ? "0" + seconds : "" + seconds;
+	let msecsString = (msecs < 10) ? "00" + msecs : (msecs < 100) ? "0" + msecs : msecs;
+
+	let result = hourString + ":" + minuteString + ":" + secondString + "." + msecsString;
+	// console.log("Readable timestamp: " + result);
+	return result;
+}
+
+
+// STOMP-based stream listener (no polling)
+function listenToWWSDataWithStomp() {
+  //const url = "ws://stream_bridge_user1:WWS2016@10.4.82.58/ws"
+  const url = "ws://stream_bridge_user1:WWS2016@54.154.131.1:15674/ws"
+	const exchange = "/exchange/egress_exchange/";
+
+	// Check if we have a BAN_ID provided as an URL parameter
+	let BAN_ID = "c4c"; 
+
+	let client = Stomp.client(url);
+
+	function onError() {
+		console.log('Stomp error');
+	}
+
+	function onConnectListener(x) {
+		console.log("Listening to " + BAN_ID);
+        
+		//client.subscribe(exchange+BAN_ID+".motion.sleeve", function(msg) {
+    client.subscribe(exchange+BAN_ID+".button.sleeve", function(msg) {
+      // Update motion information
+      let data = JSON.parse(msg.body);
+            curSamp = data.time;
+            var d = new Date()
+            console.log(data.time-d.getTime());
+
+		});
+	}
+
+	client.connect("stream_bridge_user1", "WWS2016", onConnectListener, onError, "/test");
+};
+
+listenToWWSDataWithStomp();
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
