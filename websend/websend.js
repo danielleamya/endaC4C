@@ -345,7 +345,10 @@ function listenToWWSDataWithStomp() {
   //Paris
   //const url = "ws://stream_bridge_user1:WWS2016@54.154.131.1:15674/ws"
   //EAT
-  const url = "ws://stream_bridge_user1:WWS2016@3.231.148.129:15674/ws"
+  //const url = "ws://stream_bridge_user1:WWS2016@3.231.148.129:15674/ws"
+
+  // WSS
+  const url = "wss://stream_bridge_user1:WWS2016@wws_us_east1.msv-project.com/ws";
 
   const exchange = "/exchange/data/";
 
